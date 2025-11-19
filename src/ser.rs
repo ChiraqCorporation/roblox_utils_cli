@@ -24,13 +24,13 @@ pub fn write_v1(mesh: &IntermediateMesh, version: V1Version) -> Result<Vec<u8>> 
             let p = vertex.pos;
             let n = vertex.normal;
             let uv = vertex.uv;
-
+            
             write!(
                 writer,
                 "[{:.6},{:.6},{:.6}][{:.6},{:.6},{:.6}][{:.6},{:.6},{:.6}]",
                 p[0] * scaler, p[1] * scaler, p[2] * scaler,
                 n[0], n[1], n[2],
-                uv[0], uv[1], 0.0,
+                uv[0], (1.0 - uv[1]), 0.0, 
             )?;
         }
     }

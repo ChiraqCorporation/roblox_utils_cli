@@ -136,7 +136,7 @@ fn parse_v1(body: &[u8], scale_half: bool) -> Result<IntermediateMesh> {
             let vertex = IntermediateVertex {
                 pos,
                 normal: norm_vec,
-                uv: [uv_vec[0], 1.0 - uv_vec[1]],
+                uv: [uv_vec[0], (1.0 - uv_vec[1])],
             };
 
             let stored_index = vertices.len() as u32;
@@ -341,7 +341,7 @@ fn read_vertices(cursor: &mut Cursor<&[u8]>, count: usize, has_rgba: bool) -> Re
         vertices.push(IntermediateVertex {
             pos: [px, py, pz],
             normal: [nx, ny, nz],
-            uv: [tu, 1.0 - tv],
+            uv: [tu, tv],
         });
     }
 
