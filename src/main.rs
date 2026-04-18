@@ -215,10 +215,10 @@ fn apply_instance_conversions(
                 );
                 instance.class = model_class;
             }
-            if instance.class == "KeyframeSequence" {
+            /*if instance.class == "KeyframeSequence" {
                 instance.class = "Part".into();
                 println!("[legacy_place::convert] converted keyframesequence '{}' to part to avoid errors in old clients", instance.name);
-            }
+            }*/
 
             if instance.class == "UnionOperation" {
                 println!("[legacy_place::convert] reading MeshData2 for unionoperation '{}'", instance.name);
